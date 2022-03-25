@@ -18,7 +18,6 @@ spec:
         generateName: mkdocs-container-image-
         labels:
           tekton.dev/pipeline: mkdocs-container-image
-        namespace: dev-manoj
       spec:
         params:
           - name: git-url
