@@ -4,7 +4,11 @@ Documentation is an integral part of any project. This template is a good starti
 
 Here is how you can use this template:
 
-- [Use this template](https://github.com/IBM/mkdocs/generate) GitHub Repository to create your documentation site.
+GitHub Template|
+--|
+[![Use this template](https://user-images.githubusercontent.com/52746337/160120439-ab1e6eb7-f4ba-4f57-bb0c-9f048cd5fe83.png)](https://github.com/IBM/mkdocs-oc-pipeline/generate)
+
+- Click on the **Create a Repo from this Template** button to create your documentation site.
 
 - All content in the [/docs](/docs/) folder will be converted to HTML by [MkDocs](https://www.mkdocs.org)
 
