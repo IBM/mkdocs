@@ -1,6 +1,6 @@
-# mkdocs-training
+# ECCT Documentation Template
 
-- All content in the docs folder will be converted to HTML by [MkDocs](https://www.mkdocs.org)
+- All content in the [/docs](/docs/) folder will be converted to HTML by [MkDocs](https://www.mkdocs.org)
 
 - All you need to do is edit content in the docs folder and just do a `git push`
 
