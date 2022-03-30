@@ -47,8 +47,8 @@ echo "\033[1;32mTekton CI pipeline setup complete. Do you want to trigger the pi
 read -r answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     
-    GIT_URL=echo "$(git config --get remote.origin.url)"
-    GIT_BRANCH=echo "$(git rev-parse --abbrev-ref HEAD)"
+    GIT_URL="$(git config --get remote.origin.url)"
+    GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     
     tkn pipeline start mkdocs-oc-pipeline \
     -p git-url=$GIT_URL \
