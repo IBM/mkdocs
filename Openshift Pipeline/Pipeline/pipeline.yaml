@@ -31,7 +31,7 @@ spec:
         - setup
       taskRef:
         kind: Task
-        name: mkdocs-lint-spell
+        name: mkdocs-lint
     - name: deploy-docs
       params:
         - name: gitUrl
