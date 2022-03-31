@@ -33,7 +33,7 @@ oc apply -f github-credentials.yaml
 oc patch secret git-credentials -p '{"stringData": {"username": "'$GITUSERNAME'", "password": "'$GITPERSONALACCESSTOKEN'"}}'
 echo "\033[1;34mGit credentials configured. You can view them by running:\033[0m"
 echo "\033[1;35moc get secret git-credentials -o yaml\033[0m\n"
-
+cd ../
 echo "\033[1;34mPatching Pipeline ServiceAccount...\033[0m"
 oc patch sa pipeline -p '{"secrets": [{"name": "git-credentials"}]}'
 echo "\033[1;34mPipeline ServiceAccount setup complete.\033[0m\n"
