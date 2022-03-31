@@ -61,7 +61,7 @@ curl "https://api.github.com/repos/$GIT_USER/$GIT_REPO" \
 -H "Authorization: token $GITPERSONALACCESSTOKEN" \
 -d @- << EOF
 {
-    "description": "The documentation is hosted on the link below."
+    "description": "The documentation is hosted on the link below.",
     "homepage": "https://$GIT_USER.github.io/$GIT_REPO"
 }
 EOF
