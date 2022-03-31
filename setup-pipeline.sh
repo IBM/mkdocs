@@ -86,8 +86,8 @@ EOF
 echo "\033[1;34mWebhook added successfully.\033[0m\n"
 
 
-echo "\033[1;32mTekton CI pipeline setup complete.\n\
-You can add/update/delete anything in the GitHub Repo:\033[1;36m$GIT_REPO\033[0m and the Openshift pipeline will run automatically to build the docs and deploy it on \033[1;36m'https://$GIT_USER.github.io/$GIT_REPO'.\033[0m\n\
+echo "\033[1;32mTekton CI pipeline setup complete.\033[0m\n\
+You can add/update/delete anything in the GitHub Repo:\033[1;36m$GIT_URL\033[0m and the Openshift pipeline will run automatically to build the docs and deploy it on \033[1;36m'https://$GIT_USER.github.io/$GIT_REPO'.\033[0m\n\
 Do you want to trigger the pipeline to build mkdocs now? (y/n)\033[0m"
 read -r answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
@@ -98,7 +98,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     --use-param-defaults
 else
     echo "\033[1;34mYou can run the pipeline later with the following command:\033[0m"
-    echo "\033[1;35mtkn pipeline start mkdocs-oc-pipeline -p git-url=$GIT_URL -p git-rev=$GIT_BRANCH --use-param-defaults\033[0m\n"
+    echo "\033[1;36mtkn pipeline start mkdocs-oc-pipeline -p git-url=$GIT_URL -p git-rev=$GIT_BRANCH --use-param-defaults\033[0m\n"
 fi
 
 echo "\033[1;32m-----------Tekton CI setup complete-------------\033[0m\n"
