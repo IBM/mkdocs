@@ -29,5 +29,12 @@ oc delete -f github-credentials.yaml
 cd ../
 echo "\033[1;34mTekton Secrets deleted successfully.\033[0m\n"
 
+echo "\033[1;34mDeleting Tekton Trigger...\033[0m"
+cd Trigger/
+oc delete -f github-trigger.yaml
+cd ../
+echo "\033[1;34mTekton Trigger deleted successfully.\033[0m\n"
+
+
 cd ../
 echo "\033[1;31m---------------Tekton CI deleted successfully---------------\033[0m\n"

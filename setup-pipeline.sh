@@ -8,7 +8,7 @@ cd Openshift\ Pipeline/
 echo
 NAMESPACE=$(oc config view --minify -o jsonpath='{..namespace}')
 echo "\033[1;37mUsing Openshift Project: $NAMESPACE\033[0m\n"
- 
+
 echo "\033[1;34mSetting up Tekton Tasks...\033[0m"
 cd Tasks/
 oc apply -f mkdocs-setup.yaml
@@ -38,17 +38,57 @@ echo "\033[1;34mPatching Pipeline ServiceAccount...\033[0m"
 oc patch sa pipeline -p '{"secrets": [{"name": "git-credentials"}]}'
 echo "\033[1;34mPipeline ServiceAccount setup complete.\033[0m\n"
 
+echo "\033[1;34mSetting up Tekton Trigger...\033[0m"
+cd Trigger/
+oc apply -f github-trigger.yaml
+cd ../
+echo "\033[1;34mTekton Trigger setup complete.\033[0m\n"
+
+echo "\033[1;34mWaiting for the EventListener Route to be Ready...\033[0m\n"
+sleep 10
 cd ../
 
 GIT_URL="$(git config --get remote.origin.url)"
 GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 
+GIT_USER=$(echo $GIT_URL | cut -d '/' -f4)
+GIT_REPO=$(echo $GIT_URL | cut -d '/' -f5 | cut -d '.' -f1)
+
+ROUTE="http://$(oc get route mkdocs-build-listener-el -o jsonpath='{.spec.host}')"
+
+echo "\033[1;34mUpdating GitHub Repository Details...\033[0m"
+curl "https://api.github.com/repos/$GIT_USER/$GIT_REPO" \
+-H "Authorization: token $GITPERSONALACCESSTOKEN" \
+-d @- << EOF
+{
+    "description": "The documentation is hosted on the link below."
+    "homepage": "https://$GIT_USER.github.io/$GIT_REPO"
+}
+EOF
+echo "\033[1;34mGitHub Repository Details updated successfully.\033[0m\n"
+
+echo "\033[1;34mAdding Webhook to the GitHub Repo...\033[0m"
+curl "https://api.github.com/repos/$GIT_USER/$GIT_REPO/hooks" \
+-H "Authorization: token $GITPERSONALACCESSTOKEN" \
+-d @- << EOF
+{
+    "name": "web",
+    "active": true,
+    "events": [
+    "push"
+    ],
+    "config": {
+    "url": "$ROUTE",
+    "content_type": "json"
+    }
+}
+EOF
+echo "\033[1;34mWebhook added successfully.\033[0m\n"
+
+
 echo "\033[1;32mTekton CI pipeline setup complete. Do you want to trigger the pipeline now? (y/n)\033[0m"
 read -r answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-    
-    GIT_URL="$(git config --get remote.origin.url)"
-    GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     
     tkn pipeline start mkdocs-oc-pipeline \
     -p git-url=$GIT_URL \
