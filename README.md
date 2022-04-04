@@ -1,4 +1,4 @@
-# ECCT Documentation Template
+# Documentation Template
 
 Documentation is an integral part of any project. This template is a good starting point for your documentation. The template uses [Mkdocs](https://www.mkdocs.org), a static site generator to convert your markdown files into HTML and host it on github pages.
 
