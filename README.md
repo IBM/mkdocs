@@ -12,5 +12,4 @@ Here is how you can use it after creating your repository from the template repo
 
 - The documentation will be automatically deployed as a static site on GitHub Pages.
 
-- Link to access the documentation: <https://gitusername.github.io/gitrepo>
-> Note: Replace the `gitusername` in the link with your GitHub username and the `gitrepo` with your GitHub repo name.
+- Link to access the documentation will automatically get updated in the About section of the Repository.
