@@ -2,13 +2,7 @@
 
 Documentation is an integral part of any project. This template is a good starting point for your documentation. The template uses [Mkdocs](https://www.mkdocs.org), a static site generator to convert your markdown files into HTML and host it on github pages.
 
-Here is how you can use this template:
-
-GitHub Template|
---|
-[![Use this template](https://user-images.githubusercontent.com/52746337/160120439-ab1e6eb7-f4ba-4f57-bb0c-9f048cd5fe83.png)](https://github.com/IBM/mkdocs-oc-pipeline/generate)
-
-- Click on the **Create a Repo from this Template** button to create your documentation site.
+Here is how you can use this template after creating your repo from the template repository:
 
 - All content in the [/docs](/docs/) folder will be converted to HTML by [MkDocs](https://www.mkdocs.org)
 
