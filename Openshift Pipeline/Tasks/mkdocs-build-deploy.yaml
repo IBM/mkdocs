@@ -11,7 +11,7 @@ spec:
       name: gitRevision
       type: string
   steps:
-    - image: manojjahgirdar/mkdocs-builder:v2.0
+    - image: manojjahgirdar/ubi-mkdocs-builder:v2.1
       name: build-and-deploy-mkdocs
       resources: {}
       script: |

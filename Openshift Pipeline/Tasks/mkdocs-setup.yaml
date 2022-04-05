@@ -12,7 +12,7 @@ spec:
       type: string
   steps:
     - image: >-
-        manojjahgirdar/mkdocs-builder:v2.0
+        manojjahgirdar/ubi-mkdocs-builder:v2.1
       name: git-clone
       resources: {}
       script: |
