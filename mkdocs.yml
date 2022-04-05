@@ -1,9 +1,9 @@
-site_name: Enterprise Content Team Documentation
+site_name: Documentation Template
 site_description: >-
-    Docs governing how our team works
-site_url: https://IBM.github.io/ecct/docs/
-site_author: Brian Innes
-repo_url: https://github.com/IBM/mkdocs
+    Documentation is an integral part of any project. This template is a good starting point for your documentation.
+site_url: https://ibm.github.io/mkdocs-oc-pipeline/docs
+site_author: Enter Author Name
+repo_url: https://github.com/IBM/mkdocs-oc-pipeline
 docs_dir: docs
 site_dir: site
 edit_uri: edit/master/docs
