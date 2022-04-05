@@ -11,7 +11,7 @@ spec:
       name: gitRevision
       type: string
   steps:
-    - image: 'manojjahgirdar/mkdocs-builder:v1.12'
+    - image: manojjahgirdar/mkdocs-builder:v2.0
       name: mkdocs-spell-lint
       resources: {}
       script: |
@@ -22,5 +22,5 @@ spec:
         echo "-------------------------------"
 
         echo "-------Linting spellings-------"
-        node lint/node_modules/cspell/bin.js mkdocs/**/*.md || exit 1
+        cspell mkdocs/**/*.md || exit 1
         echo "-------------------------------"

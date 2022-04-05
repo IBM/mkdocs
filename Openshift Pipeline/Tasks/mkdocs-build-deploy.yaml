@@ -11,7 +11,7 @@ spec:
       name: gitRevision
       type: string
   steps:
-    - image: 'manojjahgirdar/mkdocs-builder:v1.12'
+    - image: manojjahgirdar/mkdocs-builder:v2.0
       name: build-and-deploy-mkdocs
       resources: {}
       script: |
@@ -23,5 +23,5 @@ spec:
 
         echo "------Building and Deploying Mkdocs------"
         cd ./mkdocs/
-        python3.6 -m mkdocs gh-deploy || exit 1
+        python3.9 -m mkdocs gh-deploy || exit 1
         echo "-------------------------------"
