@@ -28,7 +28,7 @@ cd Secret/
 echo "\033[1;36mEnter your Git username:\033[0m"
 read GITUSERNAME
 echo "\033[1;36mEnter your Git personal access token:\033[0m"
-read GITPERSONALACCESSTOKEN
+read -s GITPERSONALACCESSTOKEN
 oc apply -f github-credentials.yaml
 oc patch secret git-credentials -p '{"stringData": {"username": "'$GITUSERNAME'", "password": "'$GITPERSONALACCESSTOKEN'"}}'
 echo "\033[1;34mGit credentials configured. You can view them by running:\033[0m"
