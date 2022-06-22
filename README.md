@@ -9,7 +9,7 @@ Here is how you can use it after creating your repository from the template repo
 
 - All content in the [/docs](/docs/) folder will be converted to HTML by [MkDocs](https://www.mkdocs.org)
 
-- Follow the [Automate Mkdocs deployment on GitHub Pages using OpenShift Pipelines](https://github.ibm.com/manoj-jahgirdar/Mkdocs-tutorial) tutorial to setup a tekton pipeline to deploy your documentation site.
+- Follow the [Automate Mkdocs deployment on GitHub Pages using OpenShift Pipelines](https://developer.ibm.com/tutorials/use-openshift-pipelines-on-any-cloud-to-automate-mkdocs-deployment/) tutorial to setup a tekton pipeline to deploy your documentation site.
 
 - You can add/edit your documentation in the [/docs](/docs/) folder and commit the changes to the GitHub repository.
 
